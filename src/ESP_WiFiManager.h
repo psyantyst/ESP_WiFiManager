@@ -155,6 +155,7 @@ const char WM_HTTP_SCRIPT[] PROGMEM = "<script>function c(l){document.getElement
 #if USE_ESP_WIFIMANAGER_NTP
 
 const char HTTP_SCRIPT_NTP_MSG[] PROGMEM = "<p>Touch Configuration to configure your WiFi access point.</p>";
+const char WM_HTTP_SCRIPT_NTP_MSG[] PROGMEM = "<p>Touch Configuration to configure your WiFi access point.</p>";// "<p>Your timezone is : <b><label id='timezone'></b><script>document.getElementById('timezone').innerHTML = timezone.name();</script></p>";
 
 // From v1.0.9 to permit disable or configure NTP from sketch
 #ifndef USE_CLOUDFLARE_NTP
