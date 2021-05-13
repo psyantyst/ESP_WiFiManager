@@ -1152,7 +1152,7 @@ void ESP_WiFiManager::handleWifi()
   
   String page = FPSTR(WM_HTTP_HEAD_START);
   
-  page.replace("{v}", "Config ESP");
+  page.replace("{v}", "TicrThing configuration");
   page += FPSTR(WM_HTTP_SCRIPT);
   page += FPSTR(WM_HTTP_SCRIPT_NTP);
   page += FPSTR(WM_HTTP_STYLE);
@@ -1211,7 +1211,7 @@ void ESP_WiFiManager::handleWifi()
     }
     
     // From v1.0.10
-    page += FPSTR(WM_FLDSET_END);
+    page += FPSTR(WM_FLDSET_END_TICR);
     //////
 
     page += "<br/>";
@@ -1289,7 +1289,7 @@ void ESP_WiFiManager::handleWifi()
 #endif  
   {
     // From v1.0.10
-    page += FPSTR(WM_FLDSET_START);
+    page += FPSTR(WM_FLDSET_START_TICR);
     //////
     
     String item = FPSTR(WM_HTTP_FORM_LABEL);

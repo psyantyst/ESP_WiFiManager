@@ -154,7 +154,6 @@ const char WM_HTTP_SCRIPT[] PROGMEM = "<script>function c(l){document.getElement
 
 #if USE_ESP_WIFIMANAGER_NTP
 
-const char HTTP_SCRIPT_NTP_MSG[] PROGMEM = "<p>Touch Configuration to configure your WiFi access point.</p>";
 const char WM_HTTP_SCRIPT_NTP_MSG[] PROGMEM = "<p>Touch Configuration to configure your WiFi access point.</p>";// "<p>Your timezone is : <b><label id='timezone'></b><script>document.getElementById('timezone').innerHTML = timezone.name();</script></p>";
 
 // From v1.0.9 to permit disable or configure NTP from sketch
@@ -178,6 +177,9 @@ const char WM_HTTP_HEAD_END[] PROGMEM = "</head><body><div class='container'><di
 
 const char WM_FLDSET_START[]  PROGMEM = "<fieldset>";
 const char WM_FLDSET_END[]    PROGMEM = "</fieldset>";
+
+const char WM_FLDSET_END_TICR[]    PROGMEM = "<p><small>Only 2.4GHz networks are listed above. The TicrThing cannot connect to 5GHz networks.</small></p></fieldset>";
+const char WM_FLDSET_START_TICR[]  PROGMEM = "<fieldset id='ticrdiv' hidden>";
 //////
 
 const char WM_HTTP_PORTAL_OPTIONS[] PROGMEM = "<form action='/wifi' method='get'><button class='btn'>Configuration</button></form><br/><form action='/close' method='get'><button class='btn'>Exit Portal</button></form><br/>";
@@ -185,7 +187,7 @@ const char WM_HTTP_ITEM[] PROGMEM = "<div><a href='#p' onclick='c(this)'>{v}</a>
 const char JSON_ITEM[] PROGMEM = "{'SSID':'{v}', 'Encryption':{i}, 'Quality':'{r}'}";
 
 // KH, update from v1.1.0
-const char WM_HTTP_FORM_START[] PROGMEM = "<form method='get' action='wifisave'><fieldset><div><label>SSID</label><input id='s' name='s' length=32 placeholder='SSID'><div></div></div><div><label>Password</label><input id='p' name='p' length=64 placeholder='password'><div></div></div><div><label>SSID1</label><input id='s1' name='s1' length=32 placeholder='SSID1'><div></div></div><div><label>Password</label><input id='p1' name='p1' length=64 placeholder='password1'><div></div></div></fieldset>";
+const char WM_HTTP_FORM_START[] PROGMEM = "<form method='get' action='wifisave'><fieldset><div><label>SSID</label><input id='s' name='s' length=32 placeholder='SSID'><div></div></div><div><label>Password</label><input id='p' name='p' length=64 placeholder='password'><div></div><p><small>Your password remains stored on your TicrThing and is not transmitted outside your network.</small></p></div><input type='hidden' id='s1' name='s1' length=32 placeholder='SSID1'><input type='hidden' id='p1' name='p1' length=64 placeholder='password1'></fieldset><br/>";
 //////
 
 // KH, add from v1.0.10
@@ -196,7 +198,7 @@ const char WM_HTTP_FORM_LABEL_AFTER[] PROGMEM = "<div><input id='{i}' name='{n}'
 const char WM_HTTP_FORM_LABEL[] PROGMEM = "<label for='{i}'>{p}</label>";
 const char WM_HTTP_FORM_PARAM[] PROGMEM = "<input id='{i}' name='{n}' length={l} placeholder='{p}' value='{v}' {c}>";
 
-const char WM_HTTP_FORM_END[] PROGMEM = "<button class='btn' type='submit'>Save</button></form>";
+const char WM_HTTP_FORM_END[] PROGMEM = "<button class='btn' type='submit' onclick='document.getElementById(\"ticrdiv\").removeAttribute(\"hidden\");return false;'>Advanced</button><br/><br/><button class='btn' type='submit'>Save</button></form>";
 
 // KH, update from v1.1.0
 const char WM_HTTP_SAVED[] PROGMEM = "<div class='msg'><b>Credentials Saved</b><br>Your TicrThing will now restart and will try to connect to {x}.</div>";
